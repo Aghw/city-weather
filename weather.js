@@ -1,6 +1,7 @@
 // console.log("Inside weather.js");
-const apiUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
-// const apiUrl = "https://uwpce-weather-proxy.herokuapp.com/data/2.5/weather";
+const cors = "https://cors-anywhere.herokuapp.com/";
+// const apiUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
+const apiUrl = "https://uwpce-weather-proxy.herokuapp.com/data/2.5/weather";
 const weatherAPIId = "d1d1639242e70d95bfcfa804bd279455";
 const googleAPI = "AIzaSyD9HFIVhhN6NNCDR4-qyNhoLq2L84UxXmc";
 let currentWeather = null;
@@ -76,8 +77,8 @@ function processRequest(cityUrl) {
     // but something went wrong)
     request.onload = function () {
       let weatherDiv = document.getElementById('weatherInfo');
-      let response = JSON.parse(request.response);
-      // let response = JSON.parse(request.response).body;
+      // let response = JSON.parse(request.response);
+      let response = JSON.parse(request.response).body;
 
       currentWeather = response.main;
       currentWeather.name = response.name;
@@ -133,50 +134,6 @@ function cityWeather(city) {
       processRequest(formatted);
 }
 
-
-//
-// function seattleWeather () {
-//       event.preventDefault(); //to prevent the form from submitting to server and refreshing the page
-//       latitude = 47.6762;
-//       longitude = -122.3182;
-//
-//       // let cityCord =  {appid: weatherAPIId, lat: latitude, lon: longitude, units: "imperial" };
-//       tempUnit = "imperial"
-//       let cityCord =  {units: tempUnit, appid: weatherAPIId, lat: latitude, lon: longitude};
-//       let formatted = cityWeatherUrlBuilder(cityCord);
-//
-//       let h1 = document.querySelector("h1");
-//       h1.innerHTML = "Current Weather and Forcast In Seattle";
-//
-//       // var div1 = document.getElementById("list-container");
-//       var parent = document.querySelector("#weatherInfo");
-//       //clear out any existing staff
-//       parent.innerHTML = "<h3>Weather in Seattle, US: </h3>";
-//
-//       processRequest(formatted);
-// }
-
-
-//
-// function londonWeather () {
-//       event.preventDefault(); //to prevent the form from submitting to server and refreshing the page
-//       latitude = 51.5074;
-//       longitude = 0.1278;
-//
-//       tempUnit = "metric"
-//       let cityCord =  {units: tempUnit, appid: weatherAPIId, lat: latitude, lon: longitude};
-//       let formatted = cityWeatherUrlBuilder(cityCord);
-//
-//       let h1 = document.querySelector("h1");
-//       h1.innerHTML = "Current Weather and Forcast In London";
-//
-//       // var div1 = document.getElementById("list-container");
-//       var parent = document.querySelector("#weatherInfo");
-//       //clear out any existing staff
-//       parent.innerHTML = "<h3>Weather in London, UK: </h3>";
-//
-//       processRequest(formatted);
-// }
 
 
 
