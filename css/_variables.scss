@@ -22,5 +22,30 @@ $btn-map: (
   btnCurrentLoc: (#193c29 ,#1b613b, #20d071),
 );
 
+@mixin justify-direction($direction) {
+  justify-content: $direction;
+}
+// .box { @include border-radius(10px); }
+.flex-space-between {
+    display: flex;
+    // justify-content: space-between;
+    @include justify-direction(space-between);
+    // flex-direction: column;
+}
+
+.flex-space-around {
+    display: flex;
+    // justify-content: space-around;
+    @include justify-direction(space-around);
+    // flex-direction: column;
+}
+
+
+.flex-space-center {
+    display: flex;
+    // justify-content: space-around;
+    @include justify-direction(space-center);
+    // flex-direction: column;
+}
 
 $cities: (Seattle, London, CurrentLoc);

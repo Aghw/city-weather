@@ -8,32 +8,6 @@ html {
   font: normal normal $html-font/$line-height 'Permanent Marker', sans-serif;
 }
 
-@mixin justify-direction($direction) {
-  justify-content: $direction;
-}
-// .box { @include border-radius(10px); }
-.flex-space-between {
-    display: flex;
-    // justify-content: space-between;
-    @include justify-direction(space-between);
-    // flex-direction: column;
-}
-
-.flex-space-around {
-    display: flex;
-    // justify-content: space-around;
-    @include justify-direction(space-around);
-    // flex-direction: column;
-}
-
-
-.flex-space-center {
-    display: flex;
-    // justify-content: space-around;
-    @include justify-direction(space-center);
-    // flex-direction: column;
-}
-
 
 body {
   position:relative;
@@ -89,9 +63,6 @@ main {
 }
 
 .weather-control-buttons {
-  // position: relative;
-
-
   @extend .flex-space-around;
   flex-wrap: wrap;
   padding-bottom: $normal-padding;
@@ -132,8 +103,6 @@ div[class^="weather-"] button {
   width: $map-width;
   margin: 1rem auto;
 
-  // display:flex;
-  // justify-content: center;
   @extend .flex-space-center;
   align-items: center;
 }
@@ -177,8 +146,6 @@ div[class^="weather-"] button {
   color: $white;
   font-size: 1rem;
 
-  // display:flex;
-  // justify-content: center;
   @extend .flex-space-center;
   flex-wrap: wrap;
   align-items: center;
