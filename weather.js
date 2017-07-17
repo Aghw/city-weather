@@ -1,5 +1,4 @@
 // console.log("Inside weather.js");
-const cors = "https://cors-anywhere.herokuapp.com/";
 // const apiUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
 const apiUrl = "https://uwpce-weather-proxy.herokuapp.com/data/2.5/weather";
 const weatherAPIId = "d1d1639242e70d95bfcfa804bd279455";
@@ -90,7 +89,6 @@ function processRequest(cityUrl) {
       currentWeather.cloudiness = response.clouds.all + " %";
       currentWeather.weather = response.weather[0].main + " ( " + response.weather[0].description + " )";
       currentWeather.unit = tempUnit;
-      // currentWeather.precipitation = response.rain;
 
       let icon = response.weather[0].icon
       currentWeather.icon = `<img src=http://openweathermap.org/img/w/${icon}.png>`;
@@ -135,8 +133,6 @@ function cityWeather(city) {
 }
 
 
-
-
 // the following function is triggered when the "current Loc" button is clicked
 function currentLocationWeather() {
       // get user's location from the browser
@@ -178,7 +174,6 @@ function getLocation(currLoc) {
 }
 
 
-
 function displayCurrentTime () {
       let dateTime = document.getElementById("dateTime");
       let d = (new Date()).toTimeString().slice(0,8);
@@ -187,6 +182,8 @@ function displayCurrentTime () {
 
       let t = setTimeout(displayCurrentTime, 500);
 }
+
+
 
 function drawList() {
       // to display currenttime
@@ -232,15 +229,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       let seaWeather = document.querySelector('#seattleWeather');
       let lonWeather = document.querySelector('#londonWeather');
+      let currLocation = document.querySelector('#currentLocation');
+
       // seaWeather.addEventListener("click", seattleWeather);
       seaWeather.addEventListener("click", function() {
         cityWeather(cityGeoLoc.seattle); }, false);
+
       // lonWeather.addEventListener("click", londonWeather);
       lonWeather.addEventListener("click", function() {
         cityWeather(cityGeoLoc.london); }, false );
 
-
-      let currLocation = document.querySelector('#currentLocation');
       currLocation.addEventListener("click", currentLocationWeather);
 })
 
