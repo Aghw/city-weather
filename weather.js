@@ -1,6 +1,6 @@
 // console.log("Inside weather.js");
-// const apiUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
-const apiUrl = "https://uwpce-weather-proxy.herokuapp.com/data/2.5/weather";
+const apiUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather";
+// const apiUrl = "https://uwpce-weather-proxy.herokuapp.com/data/2.5/weather";
 const weatherAPIId = "d1d1639242e70d95bfcfa804bd279455";
 const googleAPI = "AIzaSyD9HFIVhhN6NNCDR4-qyNhoLq2L84UxXmc";
 let currentWeather = null;
@@ -76,8 +76,8 @@ function processRequest(cityUrl) {
     // but something went wrong)
     request.onload = function () {
       let weatherDiv = document.getElementById('weatherInfo');
-      // let response = JSON.parse(request.response);
-      let response = JSON.parse(request.response).body;
+      let response = JSON.parse(request.response);
+      // let response = JSON.parse(request.response).body;
 
       currentWeather = response.main;
       currentWeather.name = response.name;
@@ -209,7 +209,7 @@ function geolocError() {
 
 // helper method to call API and convert longitude & latitude to a human friendly address
 function getLocation(currLoc) {
-      
+
       latitude = Math.floor(currLoc.lat * 10000 + 0.5) / 10000;
       longitude = Math.floor(currLoc.lng * 10000 + 0.5) / 10000;
       tempUnit = "imperial"
