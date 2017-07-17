@@ -145,7 +145,7 @@ function geolocSuccess(position) {
       getLocation(newPos);
 
       let h1 = document.querySelector("h1");
-      h1.innerHTML = "Current Weather and Forcast In " + currentWeather.name;
+      h1.innerHTML = "Current Weather and Forecast In " + currentWeather.name;
 
       // update city name in main page
       let pageTitle = document.querySelector("#weatherInfo");
